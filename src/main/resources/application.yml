@@ -1,0 +1,27 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /gateway
+
+spring:
+  application:
+    name: gateway
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/eureka
+
+zuul:
+  prefix: /api
+  ignored-services: "*"
+
+  routes:
+    CrudService:
+      path: /CrudService/**
+      service-id: crud
+      strip-prefix: false
+      custom-sensitive-headers: true
