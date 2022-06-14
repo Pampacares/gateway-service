@@ -1,7 +1,7 @@
 version: 2.1
 
-orbs:
-  heroku: circleci/heroku@1.2.6
+# orbs:
+#  heroku: circleci/heroku@1.2.6
   
 jobs:
 #   start-docker:
@@ -51,14 +51,14 @@ jobs:
           name: Test
           command: mvn test
 
-  Deploy-in-develop:
-    executor: heroku/default
-    environment:
-      HEROKU_APP_NAME: "gateway-service-develop"
-    steps:
-      - checkout
-      - heroku/install
-      - heroku/deploy-via-git
+ # Deploy-in-develop:
+ #   executor: heroku/default
+ #   environment:
+ #     HEROKU_APP_NAME: "gateway-service-develop"
+ #   steps:
+ #     - checkout
+ #     - heroku/install
+ #     - heroku/deploy-via-git
    
   Deploy-in-staging:
     docker:
